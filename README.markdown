@@ -43,20 +43,21 @@ The Fusion RAG system employs a sophisticated pipeline to process documents and 
 
 ### Diagram of the RAG Pipeline
 ```mermaid
-graph LR
-    A[User Query] --> B[FiDRetriever]
-    B --> C[Vector Search (Chroma)]
-    C --> D[Embeddings (OllamaEmbeddings)]
-    B --> E[TF-IDF Scoring]
-    B --> F[Recency Scoring]
-    C --> G[Retrieved Documents]
+flowchart LR
+    A(["User Query"])
+    A --> B["FiDRetriever"]
+    B --> C["Vector Search (Chroma)"]
+    C --> D["Embeddings (OllamaEmbeddings)"]
+    B --> E["TF-IDF Scoring"]
+    B --> F["Recency Scoring"]
+    C --> G["Retrieved Documents"]
     E --> G
     F --> G
-    G --> H[Formatter]
-    H --> I[Prompt Template]
-    I --> J[LLM]
-    J --> K[Output Parser]
-    K --> L[Response]
+    G --> H["Formatter"]
+    H --> I["Prompt Template"]
+    I --> J["LLM"]
+    J --> K["Output Parser"]
+    K --> L["Response"]
 ```
 
 This diagram can be rendered in GitHub to visualize the pipeline from query to response.
